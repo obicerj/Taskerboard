@@ -1,0 +1,51 @@
+{
+  "mainboards": [
+    {
+      "name": "UI/UX",
+      "status": false,
+      "id": 1
+    },
+    {
+      "name": "Frontend Dev",
+      "status": false,
+      "id": 3
+    }
+  ],
+  "boards": [
+    {
+      "name": "Todo",
+      "status": false,
+      "mainboardId": 1,
+      "id": 1
+    },
+    {
+      "name": "On Going",
+      "status": false,
+      "mainboardId": 1,
+      "id": 2
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "boardId": 1,
+      "status": false,
+      "name": "Create Form UI",
+      "details": "Design form ui"
+    },
+    {
+      "boardId": 1,
+      "status": true,
+      "name": "Redesign button",
+      "details": "Retro Style",
+      "id": 8
+    },
+    {
+      "boardId": 2,
+      "status": false,
+      "name": "Dark mode toggle",
+      "details": "Add dark mode theme toggle",
+      "id": 10
+    }
+  ]
+}
