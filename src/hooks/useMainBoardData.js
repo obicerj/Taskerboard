@@ -104,7 +104,7 @@ const fetchMainBoardById = (mainboardId) => {
 const useMainBoardData = (mainboardId) => {
   return useQuery(
     ["mainboard", mainboardId],
-    fetchMainBoardById,
+    () => fetchMainBoardById(mainboardId),
     {
       select: (data) => {
         const mainboard = data?.data;
