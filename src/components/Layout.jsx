@@ -14,7 +14,7 @@ const Layout = () => {
       {/* Header */}
       <div className="flex w-full bg-white fixed justify-between items-center px-4 py-2 z-20">
         <div className="flex-none">
-          <h1>Tasker</h1>
+          <h1>Taskboard</h1>
         </div>
         <div className="grow mx-4">
           <form className="flex justify-center">

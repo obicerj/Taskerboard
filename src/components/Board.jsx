@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import useTaskData, { useCompletedTaskData } from "../hooks/useTaskData";
 import AddTask from "./AddTask";
 import CompletedTask from "./CompletedTask";

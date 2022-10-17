@@ -7,10 +7,13 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
+import { store } from "./store";
+import { Provider } from 'react-redux'
 import "./index.css";
 import ErrorPage from "./ErrorPage";
 import MainBoard from "./components/MainBoard";
 import Home from "./routes/Home";
+import Dashboard from "./routes/Dashboard";
 
 
 const queryClient = new QueryClient();
@@ -22,7 +25,11 @@ const router = createBrowserRouter([
     // Pass Outlet to App element
     children: [
       {
-        path: "board/:mainboardId",
+        path: "/",
+        element: <Dashboard />
+      },
+      {
+        path: "/board/:mainboardId",
         element: <MainBoard />
       }
     ]
@@ -31,8 +38,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
     {/* <App /> */}
     <RouterProvider router={router} />
+    </Provider>
     <ReactQueryDevtools initialIsOpen={false} position="bottom-right"/>
   </QueryClientProvider>
 );

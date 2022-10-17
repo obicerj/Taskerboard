@@ -1,11 +1,12 @@
 import React from 'react'
-import { useDeleteTask, useUndoneTask } from '../hooks/useTaskData'
+import { useDeleteTask, useUpdateTask } from '../hooks/useTaskData'
 
 const CompletedTask = ({completed, boardId}) => {
-    const {mutate: uncheckTask} = useUndoneTask(boardId)
+
+    const {mutate: uncheckTask} = useUpdateTask(boardId)
     const handleUncheckTask = (taskId) => {
-        const uncheck = {status: false}
-        uncheckTask({uncheck, taskId})
+        const updatedData = {status: false}
+        uncheckTask({updatedData, taskId})
     }
 
     const {mutate: deleteCompletedTask} = useDeleteTask(boardId)

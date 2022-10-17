@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+import { useSelector, useDispatch } from "react-redux"
+import { toggleSidebarDrawer } from "../components/sidebarSlice";
 
 const Home = () => {
-  const [showDrawer, setShowDrawer] = useState(false);
+  const dispatch = useDispatch()
 
   return (
     <div>
@@ -13,7 +15,7 @@ const Home = () => {
       {/* Header */}
       <div className="flex w-full bg-white fixed justify-between items-center px-4 py-2 z-20">
         <div className="flex gap-2">
-          <button onClick={() => setShowDrawer((prev) => !prev)}>
+          <button onClick={() => dispatch(toggleSidebarDrawer())}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -29,7 +31,9 @@ const Home = () => {
               />
             </svg>
           </button>
-          <h1>Tasker</h1>
+          <Link to="/">
+          <h1>Taskboard</h1>
+          </Link>
         </div>
         <div className="grow mx-4">
           <form className="flex justify-center">
@@ -47,7 +51,7 @@ const Home = () => {
       </div>
 
       <div className="flex relative">
-        <Sidebar showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
+        <Sidebar />
         {/* Main board */}
         <div className="mx-4 mt-24 w-full">
           <Outlet />
