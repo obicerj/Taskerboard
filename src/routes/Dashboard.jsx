@@ -22,7 +22,6 @@ const Dashboard = () => {
 
   const query = useSelector((state) => state.searchQuery.value)
   const keys = ["name"]
-  
   const search = (data) => {
     return data?.data?.filter((item) => 
     keys.some((key) => item[key].toLowerCase().includes(query))
@@ -47,9 +46,9 @@ const Dashboard = () => {
           <div className='flex flex-col lg:flex-row lg:flex-wrap gap-8 justify-center mt-14 px-4'>
 
             {/* {mainboards?.data?.filter((mainboard) => mainboard.name.toLowerCase().includes(query)).map((mainboard) => { */}
-             {lists?.map((mainboard) => {
+             {lists?.map((mainboard, index) => {
               return (
-                <Link key={mainboard.id} to={`/board/${mainboard.id}`}>
+                <Link key={index} to={`/board/${mainboard.id}`}>
                 <div className='relative'>
                   <div className="rounded w-8 h-8 bg-yellow-300 absolute -top-2 -left-2"></div>
                   <div className="shadow bg-white hover:bg-slate-50 relative rounded px-4 py-4 w-full lg:w-80">

@@ -74,8 +74,10 @@ export const useAddMainboard = () => {
       const prevMainboards = queryClient.getQueriesData(["mainboards"]);
       queryClient.setQueryData(["mainboards"], (oldQueryData) => {
         return {
-          ...oldQueryData,
-          data: [{ id: oldQueryData?.data?.length + 1, newMainboard }],
+          data: [
+          ...oldQueryData.data,
+          { id: oldQueryData?.data?.length + 1, ...newMainboard }
+        ],
         };
       });
       return { prevMainboards };

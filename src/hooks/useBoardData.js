@@ -56,7 +56,7 @@ export const useDeleteBoard = (boardId, mainboardId) => {
 };
 
 // Create Board (newBoardData) received from onMutate
-const addBoard = ({ newBoardData }) => {
+const addBoard = (newBoardData) => {
   return request({ url: "/boards", method: "post", data: newBoardData });
 };
 export const useAddBoard = (mainboardId) => {
@@ -67,8 +67,10 @@ export const useAddBoard = (mainboardId) => {
       const prevBoards = queryClient.getQueriesData(["boards", mainboardId]);
       queryClient.setQueryData(["boards", mainboardId], (oldQueryData) => {
         return {
-          ...oldQueryData,
-          data: [{ id: oldQueryData?.data?.length + 1, ...newBoardData }],
+          data: [
+          ...oldQueryData.data,
+          { id: oldQueryData?.data?.length + 1, ...newBoardData }
+        ],
         };
       });
       return { prevBoards };

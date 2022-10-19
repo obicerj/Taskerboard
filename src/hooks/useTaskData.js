@@ -67,7 +67,6 @@ export const useAddTask = ({ boardId }) => {
       const prevTasks = queryClient.getQueriesData(["tasks", newTask.boardId]);
       queryClient.setQueryData(["tasks", newTask.boardId], (oldQueryData) => {
         return {
-          ...oldQueryData,
           data: [
             ...oldQueryData.data,
             { id: oldQueryData?.data?.length + 1, ...newTask },

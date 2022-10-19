@@ -42,7 +42,7 @@
     },
     {
       "boardId": 2,
-      "status": true,
+      "status": false,
       "name": "Dark mode toggle",
       "details": "Add dark mode theme toggle",
       "id": 10

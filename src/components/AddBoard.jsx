@@ -5,16 +5,13 @@ import { useAddBoard } from "../hooks/useBoardData";
 
 const AddBoard = ({mainboardId}) => {
     
-    // const queryClient = useQueryClient();
-
     const [name, setName] = useState('')
     const [displayAddBoard, setDisplayAddBoard] = useState(false)
 
     const {mutate: addBoard} = useAddBoard(Number(mainboardId))
-
     const handleAddBoard = () => {
         const newBoardData = {name: name, status: false, mainboardId: Number(mainboardId)}
-        addBoard({newBoardData})
+        addBoard(newBoardData)
         setName('')
         setDisplayAddBoard(!displayAddBoard)
     }

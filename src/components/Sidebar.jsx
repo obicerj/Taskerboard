@@ -58,9 +58,9 @@ const Sidebar = () => {
           </button>
         </div>
         <ul className="mt-8">
-          {mainboards?.data?.map((mainboard) => {
+          {mainboards?.data?.map((mainboard, index) => {
             return (
-              <li key={mainboard.id} className="flex justify-between text-gray-500 hover:text-gray-700 mt-1 py-1">
+              <li key={index} className="flex justify-between text-gray-500 hover:text-gray-700 mt-1 py-1">
                 <Link onClick={() => showDrawer = false} key={mainboard.id} to={`board/${mainboard.id}`} className="w-full">{mainboard.name}</Link>
               </li>
             );
