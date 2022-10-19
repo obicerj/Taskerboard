@@ -20,7 +20,7 @@ export const useUpdateMainboard = (mainboardId) => {
           ...oldQueryData,
           data: [
             ...oldQueryData.data,
-            updatedData
+            // updatedData
           ],
         };
       });

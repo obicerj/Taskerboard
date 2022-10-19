@@ -1,5 +1,6 @@
 import { useQueryClient } from "@tanstack/react-query";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { useAddBoard } from "../hooks/useBoardData";
 
 const AddBoard = ({mainboardId}) => {
@@ -18,8 +19,11 @@ const AddBoard = ({mainboardId}) => {
         setDisplayAddBoard(!displayAddBoard)
     }
 
+    const toggleView = useSelector((state) => state.boardView.value)
+    
+
     return (
-    <div className="shadow-sm rounded-md p-4 mr-4 w-80 text-center bg-slate-50 text-gray-500">
+    <div className={toggleView ? "shadow-sm rounded-md p-4 mr-4 w-80 text-center bg-slate-50 text-gray-500 !mx-auto":"shadow-sm rounded-md p-4 mr-4 w-80 text-center bg-slate-50 text-gray-500"}>
       {!displayAddBoard && 
       <button onClick={() => setDisplayAddBoard((prev) => !prev)}>+ New Task List</button>
       }

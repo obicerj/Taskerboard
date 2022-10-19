@@ -15,8 +15,8 @@ const EditMainboard = ({mainboardName, mainboardId}) => {
     <>
         {showEdit && 
         <div className="flex flex-col">
-            <input type="text" className='border' name="mainboardName" value={editMainboardName} onChange={(e) => seteditMainboardName(e.target.value)}/>
-            <button onClick={() => handleUpdateMainboard(mainboardId)}>Save</button>
+            <input type="text" className='border rounded px-1 py-1' name="mainboardName" value={editMainboardName} onChange={(e) => seteditMainboardName(e.target.value)}/>
+            <button className="rounded bg-indigo-400 text-white px-4 py-2" onClick={() => handleUpdateMainboard(mainboardId)}>Save</button>
         </div>}
         <button onClick={() => setShowEdit((prev) => !prev) }>
         <svg

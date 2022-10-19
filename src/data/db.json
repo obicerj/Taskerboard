@@ -9,6 +9,21 @@
       "name": "Frontend Dev",
       "status": false,
       "id": 3
+    },
+    {
+      "name": "Test",
+      "status": false,
+      "id": 4
+    },
+    {
+      "name": "Try",
+      "status": false,
+      "id": 5
+    },
+    {
+      "name": "New",
+      "status": false,
+      "id": 6
     }
   ],
   "boards": [
@@ -35,14 +50,14 @@
     },
     {
       "boardId": 1,
-      "status": false,
+      "status": true,
       "name": "Redesign button",
       "details": "Retro Style",
       "id": 8
     },
     {
       "boardId": 2,
-      "status": false,
+      "status": true,
       "name": "Dark mode toggle",
       "details": "Add dark mode theme toggle",
       "id": 10
