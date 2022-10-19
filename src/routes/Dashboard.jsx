@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import { keys } from 'localforage'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { useAddMainboard, useAllMainboard } from '../hooks/useMainBoardData'
+import { useAddMainboard, useAllMainboard, useSearchMainboard } from '../hooks/useMainBoardData'
 
 const Dashboard = () => {
 
@@ -19,6 +20,15 @@ const Dashboard = () => {
     setShowCreateMainboard(!showCreateMainboard)
   }
 
+  const query = useSelector((state) => state.searchQuery.value)
+  const keys = ["name"]
+  
+  const search = (data) => {
+    return data?.data?.filter((item) => 
+    keys.some((key) => item[key].toLowerCase().includes(query))
+    )
+  }  
+  const lists = search(mainboards)
 
   return (
     <div className='w-full mt-24 mb-14'>
@@ -31,11 +41,15 @@ const Dashboard = () => {
       </div>
 
         <div className='w-full md:w-4/5 !mx-auto'>
+
+          {/* <input type="text" onChange={(e) => setQuery(e.target.value)} /> */}
+
           <div className='flex flex-col lg:flex-row lg:flex-wrap gap-8 justify-center mt-14 px-4'>
 
-            {mainboards?.data?.map((mainboard) => {
+            {/* {mainboards?.data?.filter((mainboard) => mainboard.name.toLowerCase().includes(query)).map((mainboard) => { */}
+             {lists?.map((mainboard) => {
               return (
-                <Link to={`/board/${mainboard.id}`}>
+                <Link key={mainboard.id} to={`/board/${mainboard.id}`}>
                 <div className='relative'>
                   <div className="rounded w-8 h-8 bg-yellow-300 absolute -top-2 -left-2"></div>
                   <div className="shadow bg-white hover:bg-slate-50 relative rounded px-4 py-4 w-full lg:w-80">
@@ -48,7 +62,7 @@ const Dashboard = () => {
             <div>
 
             {!showCreateMainboard && 
-              <button onClick={() => setShowCreateMainboard((prev) => !prev)} className='shadow bg-slate-100 hover:bg-slate-50 w-80 relative rounded text-gray-500 text-center px-4 py-4'>
+              <button onClick={() => setShowCreateMainboard((prev) => !prev)} className='shadow bg-slate-100 hover:bg-slate-50 w-full lg:w-80 relative rounded text-gray-500 text-center px-4 py-4'>
                 + Add Board
               </button>}
 

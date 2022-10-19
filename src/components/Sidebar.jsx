@@ -61,7 +61,7 @@ const Sidebar = () => {
           {mainboards?.data?.map((mainboard) => {
             return (
               <li key={mainboard.id} className="flex justify-between text-gray-500 hover:text-gray-700 mt-1 py-1">
-                <Link key={mainboard.id} to={`board/${mainboard.id}`} className="w-full">{mainboard.name}</Link>
+                <Link onClick={() => showDrawer = false} key={mainboard.id} to={`board/${mainboard.id}`} className="w-full">{mainboard.name}</Link>
               </li>
             );
           })}

@@ -9,21 +9,6 @@
       "name": "Frontend Dev",
       "status": false,
       "id": 3
-    },
-    {
-      "name": "Test",
-      "status": false,
-      "id": 4
-    },
-    {
-      "name": "Try",
-      "status": false,
-      "id": 5
-    },
-    {
-      "name": "New",
-      "status": false,
-      "id": 6
     }
   ],
   "boards": [

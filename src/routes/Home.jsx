@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link, Outlet } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import { useSelector, useDispatch } from "react-redux"
 import { toggleSidebarDrawer } from "../components/sidebarSlice";
 import { toggleBoardView } from "../components/boardViewSlice";
+import { setQuery } from "../components/searchSlice";
 
 const Home = () => {
  const dispatch = useDispatch()
  const toggleView = useSelector((state) => state.boardView.value)
+
+ const [querySearch, setSearchQuery] = useState("")
+ useEffect(() => {
+  dispatch(setQuery(querySearch))
+ }, [querySearch])
+
 
   return (
     <div>
@@ -41,8 +48,10 @@ const Home = () => {
           <form className="flex justify-center">
             <input
               type="text"
+              value={querySearch}
+              onChange={(e) => setSearchQuery(e.target.value)}
               name="search"
-              placeholder="Search"
+              placeholder="Search board"
               className="rounded-md px-4 py-2 w-1/2 bg-slate-100 focus:bg-white focus:outline-0 focus:drop-shadow ease-in-out duration-200"
             />
           </form>

@@ -89,6 +89,14 @@ export const useAddMainboard = () => {
   });
 };
 
+// Search mainboard
+const searchMainboard = (query) => {
+  return request({ url: `/mainboards?q=${query}`, method: "get" })
+}
+export const useSearchMainboard = () => {
+  return useQuery(["mainboards"], searchMainboard);
+}
+
 // Get All Mainboard
 const fetchAllMainboard = () => {
   return request({ url: "/mainboards", method: "get" });

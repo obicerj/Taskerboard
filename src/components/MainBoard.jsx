@@ -41,6 +41,15 @@ const MainBoard = () => {
 
   const navigate = useNavigate();
 
+  const query = useSelector((state) => state.searchQuery.value)
+  const keys = ["name"]
+  const search = (data) => {
+    return data?.filter((item) => 
+    keys.some((key) => item[key].toLowerCase().includes(query))
+    )
+  }
+  const lists = search(boards)
+
   return (
     <div className={toggleView ? "mt-24 px-4 mb-8 w-full":"mt-24 px-4 mb-8"}>
       <div className={toggleView ? "flex justify-between bg-white/80 shadow rounded z-20 w-full sticky top-16 items-center px-2 py-2 my-4":"flex justify-between fixed z-20 w-full top-16 items-center pl-1 pr-8 my-4"}>
@@ -99,7 +108,7 @@ const MainBoard = () => {
       </div>
 
       <div className={toggleView ? "flex flex-col items-start gap-6 mt-8":"flex flex-row items-start gap-6 mt-8"}>
-        {boards?.map((board) => {
+        {lists?.map((board) => {
           return (
             <Board
               key={board.id}
