@@ -8,14 +8,16 @@ const EditTask = ({name, details, taskId, boardId, displayEdit}) => {
     
     const {mutate: updateTask} = useUpdateTask(boardId)
     const handleUpdateTask = (taskId) => {
+      if(editName) {
         const updatedData = { name: editName, details: editDetails }
         updateTask({updatedData, taskId})
         displayEdit(false)
-        // console.log(newTask)
+      }
+      console.log("Add Task")
     }
   return (
     <>
-        <div className="flex flex-col gap-1 shadow drop-shadow bg-slate-100 rounded px-2 py-2.5">
+        <div className="flex flex-col gap-1 shadow drop-shadow bg-slate-100 rounded px-2 py-2.5 my-4">
             <input type="text" className="border rounded text-sm focus:outline-none px-1 py-0.5" name="editName" value={editName} onChange={(e) => setEditName(e.target.value)} />
             <input type="text" className="border rounded text-sm focus:outline-none px-1 py-0.5" name="editDetails" value={editDetails} onChange={(e) => setEditDetails(e.target.value)} />
             <button className="rounded text-xs bg-indigo-400 text-white mt-1 px-4 py-2" onClick={() => handleUpdateTask(taskId)}>Update</button>

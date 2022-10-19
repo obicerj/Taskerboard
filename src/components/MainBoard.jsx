@@ -22,9 +22,12 @@ const MainBoard = () => {
 
   const { mutate: updateMainboard } = useUpdateMainboard(Number(mainboardId));
   const handleUpdateMainboard = (mainboardId) => {
-    const updatedData = { name: editMainboardName };
-    updateMainboard({ updatedData, mainboardId });
-    setDisplayEdit((prev) => !prev);
+    if(editMainboardName) {
+      const updatedData = { name: editMainboardName };
+      updateMainboard({ updatedData, mainboardId });
+      setDisplayEdit((prev) => !prev);
+    }
+    console.log("Add Mainboard name")
   };
 
   const [displayEdit, setDisplayEdit] = useState(false);

@@ -9,11 +9,14 @@ const AddTask = ({boardId}) => {
     const {mutate: addTasks} = useAddTask({boardId})
 
     const handleAddTask = (boardId) => {
-      const newTask = {boardId: boardId,  status: false, name: taskName, details: taskDetails }
-      addTasks(newTask)
-      setTaskName('')
-      setTaskDetails('')
-      setDisplayAddTask(!displayAddTask)
+      if (taskName) {
+        const newTask = {boardId: boardId,  status: false, name: taskName, details: taskDetails }
+        addTasks(newTask)
+        setTaskName('')
+        setTaskDetails('')
+        setDisplayAddTask(!displayAddTask)
+      }
+      console.log("Add Task name")
     }
 
   return (
@@ -27,7 +30,7 @@ const AddTask = ({boardId}) => {
     }
 
     {displayAddTask && 
-    <div className="flex flex-col gap-1 shadow drop-shadow bg-slate-100 rounded px-2 py-2.5">
+    <div className="flex flex-col gap-1 shadow drop-shadow bg-slate-100 rounded px-2 py-2.5 my-4">
         <input type="text" placeholder="Title" className="border rounded text-sm focus:outline-0 px-1 py-0.5" name="taskName" value={taskName} onChange={(e) => setTaskName(e.target.value)} />
         <input type="text" placeholder="Details" className="border rounded text-sm focus:outline-0 px-1 py-0.5" name="taskDetails" value={taskDetails} onChange={(e) => setTaskDetails(e.target.value)} />
         <div className='flex flex-row gap-1 justify-evenly'>

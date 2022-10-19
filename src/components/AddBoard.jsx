@@ -10,10 +10,13 @@ const AddBoard = ({mainboardId}) => {
 
     const {mutate: addBoard} = useAddBoard(Number(mainboardId))
     const handleAddBoard = () => {
+      if(name) {
         const newBoardData = {name: name, status: false, mainboardId: Number(mainboardId)}
         addBoard(newBoardData)
         setName('')
         setDisplayAddBoard(!displayAddBoard)
+      }
+      console.log("Add Board name")
     }
 
     const toggleView = useSelector((state) => state.boardView.value)

@@ -7,9 +7,12 @@ const EditMainboard = ({mainboardName, mainboardId}) => {
 
     const {mutate: updateMainboard} = useUpdateMainboard(mainboardId)
     const handleUpdateMainboard = (mainboardId) => {
+      if(editMainboardName) {
         const updatedData = {name: editMainboardName}
         updateMainboard({updatedData, mainboardId})
         setShowEdit(false)
+      }
+      console.log("Add Mainboard name")
     }
   return (
     <>

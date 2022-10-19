@@ -22,10 +22,13 @@ const Sidebar = () => {
 
   const { mutate: addMainboard } = useAddMainboard();
   const handleAddNewMainboard = () => {
-    const newBoard = { name: newMainboard, status: false };
-    addMainboard(newBoard);
-    setNewMainboard("");
-    setShowCreateMainboard(!showCreateMainboard);
+    if(newMainboard) {
+      const newBoard = { name: newMainboard, status: false };
+      addMainboard(newBoard);
+      setNewMainboard("");
+      setShowCreateMainboard(!showCreateMainboard);
+    }
+    console.log("Add Mainboard name")
   };
 
   const showDrawer = useSelector((state) => state.sidebarDrawer.value)
@@ -71,7 +74,7 @@ const Sidebar = () => {
           className="rounded w-full bg-indigo-400 text-white py-2 mt-8"
           onClick={() => setShowCreateMainboard((prev) => !prev)}
         >
-          + Add Board
+          + Add Mainboard
         </button>}
         {showCreateMainboard && (
           <div className="flex flex-col justify-between gap-1.5 mt-4">

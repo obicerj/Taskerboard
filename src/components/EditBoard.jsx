@@ -7,9 +7,12 @@ const EditBoard = ({ name, boardId, mainboardId }) => {
 
   const { mutate: updateBoard } = useUpdateBoard(boardId, mainboardId);
   const handleEditName = () => {
-    const updatedData = { name: editName };
-    updateBoard({ updatedData, boardId, mainboardId });
-    setDisplayEdit(!displayEdit);
+    if(editName) {
+      const updatedData = { name: editName };
+      updateBoard({ updatedData, boardId, mainboardId });
+      setDisplayEdit(!displayEdit);
+    }
+    console.log("Add Board name")
   };
 
   const { mutate: deleteBoard } = useDeleteBoard(boardId, mainboardId);
