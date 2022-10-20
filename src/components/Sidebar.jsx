@@ -35,7 +35,7 @@ const Sidebar = () => {
   const dispatch = useDispatch()
 
   const drawerClass = `z-50 transform top-0 left-0 w-72 bg-white shadow-lg fixed h-full overflow-auto transition-all duration-500`;
-  const closeDrawerClass = drawerClass + " " + `-translate-x-80`;
+  const closeDrawerClass = `${drawerClass} -translate-x-80`;
 
   return (
     <>

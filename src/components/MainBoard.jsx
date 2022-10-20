@@ -54,8 +54,8 @@ const MainBoard = () => {
   const lists = search(boards)
 
   return (
-    <div className={toggleView ? "mt-24 px-4 mb-8 w-full":"mt-24 px-4 mb-8"}>
-      <div className={toggleView ? "flex justify-between bg-white/80 shadow rounded z-20 w-full sticky top-16 items-center px-2 py-2 my-4":"flex justify-between fixed z-20 w-full top-16 items-center pl-1 pr-8 my-4"}>
+    <div className={`mt-24 px-4 mb-8 ${toggleView ? "w-full":""}`}>
+      <div className={`flex justify-between bg-white/80 shadow rounded z-20 w-full sticky top-16 items-center px-2 py-2 my-4 ${toggleView ? "":"fixed pl-1 pr-8"}`}>
         {!displayEdit && <h2 className="">{mainboard?.name}</h2>}
 
         {displayEdit && (

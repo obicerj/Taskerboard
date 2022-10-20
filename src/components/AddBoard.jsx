@@ -23,7 +23,7 @@ const AddBoard = ({mainboardId}) => {
     
 
     return (
-    <div className={toggleView ? "shadow-sm rounded-md p-4 mr-4 w-80 text-center bg-slate-50 text-gray-500 !mx-auto":"shadow-sm rounded-md p-4 mr-4 w-80 text-center bg-slate-50 text-gray-500"}>
+    <div className={`shadow-sm rounded-md p-4 mr-4 w-80 text-center bg-slate-50 text-gray-500 ${toggleView ?  "!mx-auto":""}`}>
       {!displayAddBoard && 
       <button onClick={() => setDisplayAddBoard((prev) => !prev)}>+ New Task List</button>
       }

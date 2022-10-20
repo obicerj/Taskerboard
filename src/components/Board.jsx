@@ -17,7 +17,7 @@ const Board = ({ board, mainboardId }) => {
     <>
       <div
         key={board.id}
-        className={toggleView ? "shadow-sm drop-shadow-sm rounded-md p-4 w-full bg-white":"shadow-sm drop-shadow-sm rounded-md p-4 w-80 bg-white"}
+        className={`shadow-sm drop-shadow-sm rounded-md p-4 bg-white ${toggleView ? "w-full":"w-80"}`}
       >
         <EditBoard name={board.name} boardId={board.id} mainboardId={mainboardId} />
 
