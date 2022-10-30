@@ -31,7 +31,7 @@ const Sidebar = () => {
     console.log("Add Mainboard name")
   };
 
-  const showDrawer = useSelector((state) => state.sidebarDrawer.value)
+  let showDrawer = useSelector((state) => state.sidebarDrawer.value)
   const dispatch = useDispatch()
 
   const drawerClass = `z-50 transform top-0 left-0 w-72 bg-white shadow-lg fixed h-full overflow-auto transition-all duration-500`;
