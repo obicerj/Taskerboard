@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npx json-server -p 4500 -w src/data/db.json && vite build",
     "preview": "vite preview",
     "db": "npx json-server -p 4500 -w src/data/db.json"
   },

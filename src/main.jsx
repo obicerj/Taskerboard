@@ -42,6 +42,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     {/* <App /> */}
     <RouterProvider router={router} />
     </Provider>
-    <ReactQueryDevtools initialIsOpen={false} position="bottom-right"/>
+    {/* <ReactQueryDevtools initialIsOpen={false} position="bottom-right"/> */}
   </QueryClientProvider>
 );
